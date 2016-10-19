@@ -16,10 +16,10 @@
       <li><a href="#">Message</a></li>
       <li><a href="#">Profile</a></li>-->
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
-    </ul>
+   <!-- <ul class="nav navbar-nav navbar-right">
+    <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
+    </ul>-->
   </div>
 </nav>
 
@@ -31,8 +31,9 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  
-  <div>
+
+ 
+ <div>
     <%=f.label :username, :Name %>
     <%=f.text_field :username %>
   </div>
@@ -54,6 +55,7 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
   <br />
+   
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

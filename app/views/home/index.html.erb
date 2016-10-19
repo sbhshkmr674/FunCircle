@@ -4,14 +4,46 @@
 	<title>Home Page</title>
 </head>
 <body>
+<nav class="navbar navbar-default" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">FunPoint</a>
+ </div>
+	<ul class="nav navbar-nav navbar-left">
+    <%= form_tag(user_session_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search folk" %>
+<%= submit_tag "Search" %>
+<% end %>
+</ul>    
+    <ul class="nav navbar-nav navbar-right">
+     
+     <li><a href="#">Home</a></li>    
+     <li><a href="#">Message</a></li>
+      <li><a href="#">Profile</a></li>
+      
+    </ul>
+    
+  </div>
+</nav>
+<% if @homes.blank? %>
+  <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
+<% end %>
 <% if user_signed_in? %>
 <h3>Welcome, <%= current_user.username %>!!</h3>
 <div class="container">
-  <h2>Rounded Corners</h2>
-  <p>The .img-rounded class adds rounded corners to an image (not available in IE8):</p>            
-  <img src="cinqueterre.jpg" class="img-rounded" alt="Cinque Terre" width="304" height="236"> 
+<ul class="nav navbar-default">
+ <!-- <h2>Rounded Corners</h2>
+  
+ <p>The .img-rounded class adds rounded corners to an image (not available in IE8):</p>-->            
+  <img src="cinqueterre.jpg" class="img-rounded"  width="304" height="236"> 
+ <h1>File Upload</h1>
+
+<%= file_field_tag :choose %>
+<%= submit_tag "Upload" %>
+
+</ul>
 </div>
-<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
 
 <% else %>
 
