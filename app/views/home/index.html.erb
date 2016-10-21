@@ -25,9 +25,7 @@
     
   </div>
 </nav>
-<% if @homes.blank? %>
-  <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
-<% end %>
+
 <% if user_signed_in? %>
 <h3>Welcome, <%= current_user.username %>!!</h3>
 <div class="container">
@@ -35,16 +33,15 @@
  <!-- <h2>Rounded Corners</h2>
   
  <p>The .img-rounded class adds rounded corners to an image (not available in IE8):</p>-->            
-  <img src="cinqueterre.jpg" class="img-rounded"  width="304" height="236"> 
- <h1>File Upload</h1>
+  <img src="cinqueterre.jpg" class="img-rounded"  width="236" height="236"> 
+  </ul>
+  <ul class="nav navbar-left" color: lightblue >
+  
+<%= link_to "Edit", edit_user_registration_path, :method => :get %>
 
-<%= file_field_tag :choose %>
-<%= submit_tag "Upload" %>
-
-</ul>
-</div>
 <%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
 
+</ul>
 <% else %>
 
 <h1>Welcome to FunPoint</h1>
